@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WashU Printing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="introScreen">
+        <div class="screenText" id="introText">
+            <p>Welcome back to Sam Fox! Before you begin the semester, we have some news for you...</p>
+            <div id="mail">
+                <p>OPEN EMAIL</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="print-dialog" id="email">
+        <div class="print-head">
+            <p>SUBJECT: BUDGET CHANGES</p>
+        </div>
+        <div class="print-body">
+            <p>Dear Washington University Students,</p>
+            <br>
+            <p>At WashU, we recognize that our community drives everything we do and stand for. We pride ourselves on our supportive and outstanding campus culture, which is only possible through the contributions of your achievements and character. Thus, we have made the executive decision to give back to the WashU community by reallocating excess printing funds to the endowment in order to better serve future generations. Rest assured that this was not an easy decision, but one that we felt would best serve the interests of our community.</p>
+            <br>
+            <p>Starting this year, each student will now be provided with $1.00 in printing money to use as they see fit. We hope this helps foster independence and wisdom as you learn to navigate these changes.</p>
+            <br>
+            <p>Sincerely,</p>
+            <br>
+            <p>Andrew D. Martin</p>
+            <p>Chancellor</p>
+        </div>               
+        <div class="cancel-button" onclick="closeMail()">
+            <p>F#%K YOU GUYS</p>
+        </div>
+        <br>
+    </div>
+
+    <div id="blackScreen">
+        <div class="screenText" id="badText">
+            <p>As WUPD escorts you away, you wonder if things would have been different if you'd budgeted your dollar differently...</p>
+            <div id="restart" onclick="restart()">
+                <p>RESTART</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="resetScreen">
+        <div class="screenText" id="resetText">
+            <p>As you stare at your studio desk wall, you wonder if there is an alternate reality where you made different (potentially better) financial decisions...</p>
+            <div id="resetBtn" onclick="restart()">
+                <p>RESTART</p>
+            </div>
+            <div id="stay" onclick="stay()">
+                <p>CANCEL</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="money">
+        $1.00
+    </div>
+
+    <div id="reset" onclick="reset()">
+        RESTART
+    </div>
+
+    <div id="overlay" loading="eager"></div>
+        <div class="print-dialog" id="dialog1">
+            <div class="print-head">
+                <p>PRINTING: NIGHT_CITY.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form1"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="1c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="1m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="1y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="1k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint1()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel1()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog2">
+            <div class="print-head">
+                <p>PRINTING: STARS.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form2"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="2c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="2m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="2y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="2k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint2()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel2()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog3">
+            <div class="print-head">
+                <p>PRINTING: SNOWY_HILLS.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form3"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="3c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="3m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="3y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="3k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint3()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel3()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog4">
+            <div class="print-head">
+                <p>PRINTING: FLOWERS.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form4"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="4c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="4m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="4y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="4k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint4()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel4()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog5">
+            <div class="print-head">
+                <p>PRINTING: LAVENDER_FIELD.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form5"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="5c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="5m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="5y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="5k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint5()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel5()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog6">
+            <div class="print-head">
+                <p>PRINTING: SUNSET_CLOUDS.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form6"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="6c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="6m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="6y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="6k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint6()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel6()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog7">
+            <div class="print-head">
+                <p>PRINTING: RUINS.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form7"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="7c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="7m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="7y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="7k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint7()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel7()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog8">
+            <div class="print-head">
+                <p>PRINTING: ALLEY.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form8"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="8c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="8m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="8y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="8k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint8()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel8()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog9">
+            <div class="print-head">
+                <p>PRINTING: TREES.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form9"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="9c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="9m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="9y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="9k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint9()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel9()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog10">
+            <div class="print-head">
+                <p>PRINTING: BEACH_SUNSET.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form10"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="10c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="10m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="10y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="10k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint10()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel10()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog11">
+            <div class="print-head">
+                <p>PRINTING: OCEAN.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form11"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="11c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="11m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="11y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="11k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint11()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel11()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>
+        <div class="print-dialog" id="dialog12">
+            <div class="print-head">
+                <p>PRINTING: AURORAS.PNG</p>
+            </div>
+            <div class="print-body">
+                <p>Please select which color channels you’d like to print. Remember that you're broke and the chances of obtaining refunds are slim, so choose your channels wisely.</p>
+                <div class="form" id="form12"> 
+                    <label> 
+                        <input type="checkbox" name="checkC" 
+                            value="12c"> Cyan ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkM" 
+                            value="12m"> Magenta ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkY" 
+                            value="12y"> Yellow ($0.07)</label> 
+                            <br>
+                    <label> 
+                        <input type="checkbox" name="checkK" 
+                            value="12k"> Black ($0.04)</label> 
+                            <br>
+                </div> 
+            </div>
+            <div class="buttons">
+                <div class="submit-button" onclick="submitPrint12()">
+                    <p>PRINT</p>
+                </div>
+                <div class="cancel-button" onclick="cancel12()">
+                    <p>CANCEL</p>
+                </div>
+            </div>
+        </div>    
+
+        <div id="error">
+            <div class="error-head">
+                <p>ERROR</p>
+            </div>
+            <div class="error-body">
+                <p>You have printed without providing the funds necessary to cover the cost. Please do not attempt this again, or we will be forced to call WUPD to revoke your printing privileges and collect your debts.</p>
+            </div>
+            <div class="submit-button" onclick="closeError()">
+                <p>SEEMS LIKE A LOT BUT OK</p>
+            </div>
+        </div>
+
+        <div id="arrest">
+            <div class="error-head">
+                <p>ERROR</p>
+            </div>
+            <div class="error-body">
+                <p>Since you still cannot procure sufficient printing funds, WUPD will assume custody of your person until your debts are repaid.</p>
+            </div>
+            <div class="submit-button" onclick="closeArrest()">
+                <p>PLEASE LET ME GO</p>
+            </div>
+        </div>
+
+    <div class="grid-container">
+        <div class="img-container" id="img-container-1">
+            <div class="print-button" id="print1" onclick="open1()">
+                <p>PRINT</p>
+            </div>
+            <img src="1/1c.png" id="1c" loading="lazy">
+            <img src="1/1m.png" id="1m" loading="lazy">
+            <img src="1/1y.png" id="1y" loading="lazy">
+            <img src="1/1k.png" id="1k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-2">
+            <div class="print-button" id="print2"  onclick="open2()">
+                <p>PRINT</p>
+            </div>
+            <img src="2/2c.png" id="2c" loading="lazy">
+            <img src="2/2m.png" id="2m" loading="lazy">
+            <img src="2/2y.png" id="2y" loading="lazy">
+            <img src="2/2k.png" id="2k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-3">
+            <div class="print-button" id="print3" onclick="open3()">
+                <p>PRINT</p>
+            </div>
+            <img src="3/3c.png" id="3c" loading="lazy">
+            <img src="3/3m.png" id="3m" loading="lazy">
+            <img src="3/3y.png" id="3y" loading="lazy">
+            <img src="3/3k.png" id="3k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-4">
+            <div class="print-button" id="print4" onclick="open4()">
+                <p>PRINT</p>
+            </div>
+            <img src="4/4c.png" id="4c" loading="lazy">
+            <img src="4/4m.png" id="4m" loading="lazy">
+            <img src="4/4y.png" id="4y" loading="lazy">
+            <img src="4/4k.png" id="4k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-5">
+            <div class="print-button" id="print5" onclick="open5()">
+                <p>PRINT</p>
+            </div>
+            <img src="5/5c.png" id="5c" loading="lazy">
+            <img src="5/5m.png" id="5m" loading="lazy">
+            <img src="5/5y.png" id="5y" loading="lazy">
+            <img src="5/5k.png" id="5k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-6">
+            <div class="print-button" id="print6" onclick="open6()">
+                <p>PRINT</p>
+            </div>
+            <img src="6/6c.png" id="6c" loading="lazy">
+            <img src="6/6m.png" id="6m" loading="lazy">
+            <img src="6/6y.png" id="6y" loading="lazy">
+            <img src="6/6k.png" id="6k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-7">
+            <div class="print-button" id="print7" onclick="open7()">
+                <p>PRINT</p>
+            </div>
+            <img src="7/7c.png" id="7c" loading="lazy">
+            <img src="7/7m.png" id="7m" loading="lazy">
+            <img src="7/7y.png" id="7y" loading="lazy">
+            <img src="7/7k.png" id="7k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-8">
+            <div class="print-button" id="print8" onclick="open8()">
+                <p>PRINT</p>
+            </div>
+            <img src="8/8c.png" id="8c" loading="lazy">
+            <img src="8/8m.png" id="8m" loading="lazy">
+            <img src="8/8y.png" id="8y" loading="lazy">
+            <img src="8/8k.png" id="8k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-9">
+            <div class="print-button" id="print9" onclick="open9()">
+                <p>PRINT</p>
+            </div>
+            <img src="9/9c.png" id="9c" loading="lazy">
+            <img src="9/9m.png" id="9m" loading="lazy">
+            <img src="9/9y.png" id="9y" loading="lazy">
+            <img src="9/9k.png" id="9k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-10">
+            <div class="print-button" id="print10" onclick="open10()">
+                <p>PRINT</p>
+            </div>
+            <img src="10/10c.png" id="10c" loading="lazy">
+            <img src="10/10m.png" id="10m" loading="lazy">
+            <img src="10/10y.png" id="10y" loading="lazy">
+            <img src="10/10k.png" id="10k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-11">
+            <div class="print-button" id="print11" onclick="open11()">
+                <p>PRINT</p>
+            </div>
+            <img src="11/11c.png" id="11c" loading="lazy">
+            <img src="11/11m.png" id="11m" loading="lazy">
+            <img src="11/11y.png" id="11y" loading="lazy">
+            <img src="11/11k.png" id="11k" loading="lazy">
+        </div>
+        <div class="img-container" id="img-container-12">
+            <div class="print-button" id="print12" onclick="open12()">
+                <p>PRINT</p>
+            </div>
+            <img src="12/12c.png" id="12c" loading="lazy">
+            <img src="12/12m.png" id="12m" loading="lazy">
+            <img src="12/12y.png" id="12y" loading="lazy">
+            <img src="12/12k.png" id="12k" loading="lazy">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
