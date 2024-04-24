@@ -248,7 +248,7 @@ p {
     cursor: pointer;
 }
 
-.cancel-button:hover, .submit-button:hover, #restart:hover, #mail:hover, #reset:hover #stay:hover{
+.cancel-button:hover, .submit-button:hover, #restart:hover, #mail:hover, #resetBtn:hover, #reset:hover, #stay:hover{
     cursor: pointer;
 }
 
